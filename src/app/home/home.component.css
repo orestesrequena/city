@@ -1,0 +1,16 @@
+.item, img{
+    /* height: 100% !important;
+    width:  100% !important; */
+
+    max-height: 600px;
+
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+.color{
+    color: #7a6f9b;
+}
+
+.color2 {
+    color:#292535;
+}
