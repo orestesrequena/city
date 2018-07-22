@@ -67,43 +67,43 @@ exports.findOne = (req, res) => {
 };
 
 // // // Update a vignobles identified by the noteId in the request
-// exports.update = (req, res) => {
-//     // Validate Request
-//     if(!req.body.content) {
-//         return res.status(400).send({
-//             message: "vignobles content can not be empty"
-//         });
-//     }
+exports.update = (req, res) => {
+    // Validate Request
+    // if(!req.body.content) {
+    //     return res.status(400).send({
+    //         message: "vignobles content can not be empty"
+    //     });
+    // }
 
-//     // Find vignobles and update it with the request body
-//     Vignobles.findByIdAndUpdate(req.params.noteId, {
-//         name: req.body.name|| "Untitled vignobles", 
-//         image: req.body.image,
-//         email: req.body.email,
-//         phone: req.body.phone,
-//         address: req.body.address,
-//         description: req.body.description,
-//         latitude: req.body.latitude,
-//         longitude: req.body.longitude
-//     }, {new: true})
-//     .then(vignobles => {
-//         if(!vignobles) {
-//             return res.status(404).send({
-//                 message: "vignobles not found with id " + req.params.noteId
-//             });
-//         }
-//         res.send(vignobles);
-//     }).catch(err => {
-//         if(err.kind === 'ObjectId') {
-//             return res.status(404).send({
-//                 message: "vignobles not found with id " + req.params.noteId
-//             });                
-//         }
-//         return res.status(500).send({
-//             message: "Error updating vignobles with id " + req.params.noteId
-//         });
-//     });
-// };
+    // Find vignobles and update it with the request body
+    Vignobles.findByIdAndUpdate(req.params.noteId, {
+        name: req.body.name|| "Untitled vignobles", 
+        image: req.body.image || "Untitled vignobles",
+        email: req.body.email || "Untitled vignobles",
+        phone: req.body.phone || "0604122929",
+        address: req.body.address || "Untitled vignobles",
+        description: req.body.description || "Untitled vignobles",
+        latitude: req.body.latitude || "Untitled vignobles",
+        longitude: req.body.longitude|| "Untitled vignobles"
+    }, {new: true})
+    .then(vignobles => {
+        if(!vignobles) {
+            return res.status(404).send({
+                message: "vignobles not found with id " + req.params.noteId
+            });
+        }
+        res.send(vignobles);
+    }).catch(err => {
+        if(err.kind === 'ObjectId') {
+            return res.status(404).send({
+                message: "vignobles not found with id " + req.params.noteId
+            });                
+        }
+        return res.status(500).send({
+            message: "Error updating vignobles with id " + req.params.noteId
+        });
+    });
+};
 
 // // Delete a vignobles with the specified noteId in the request
 exports.delete = (req, res) => {

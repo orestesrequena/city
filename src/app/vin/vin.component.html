@@ -1,19 +1,4 @@
-<?-- <p>
-  vin works!
-</p>
-<div>
-  <button class="add" title="add cluster" (click)="add()">Añadir</button>
-  <ul *ngFor="let cluster of clusters">
-    <li>
-      ID: {{ cluster._id }}, Name: {{ cluster.name }} Description: {{ cluster.description}}
-      <button class="detail" title="detail cluster" (click)="detail(cluster)">Detalle</button>
-      <button class="update" title="update cluster" (click)="update(cluster)">Actualizar</button>
-      <button class="delete" title="delete cluster" (click)="delete(cluster)">Eliminar</button>
-    </li>
-  </ul>
-</div> -->
-
-<div class="container">
+<div class="container gap-top">
   <div class="row mb-2">
     <div class="col-md-12">
       <div class="card flex-md-row mb-4 box-shadow h-md-250">
@@ -25,7 +10,7 @@
                 <div class="row" >
                   <div class="col-md-8 gap">
                     <div class="card-block">
-                      <h6 class="card-title"><a class="color" routerLink="/vins/{{ vins._id }}"> {{ vins.name }}</a></h6>
+                      <h6 class="card-title"><a class="color"  routerLink="/vins/{{ vins._id }}"> {{ vins.name }}</a></h6>
                       <p class="card-text color2" > {{vins.description}} </p>
                     </div>
                   </div>

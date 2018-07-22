@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-image:
+    #E6E5FC;
+
+   
+}
+
+.gap{
+    margin: 10px; 
+  }
+
+  .size {
+      height: 100px;
+  }
+
+  .color{
+    color: #7a6f9b;
+}
+
+.color2 {
+    color:#292535;
+}
+
+.gap-top{
+    margin-top: 20px;
+}

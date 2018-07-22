@@ -31,7 +31,7 @@ module.exports = (app) => {
     app.get('/vins/:noteId', vins.findOne);
  
     // // // Update a Note with noteId
-    // app.put('/vins/:noteId', vins.update);
+    app.put('/vins/:noteId', vins.update);
  
     // // Delete a Note with noteId
     app.delete('/vins/:noteId', vins.delete);
@@ -47,7 +47,7 @@ module.exports = (app) => {
     app.get('/vignoble/:noteId', vignobles.findOne);
 
     // // Update a Note with noteId
-    // app.put('/vignobles/:noteId', vignobles.update);
+    app.put('/vignoble/:noteId', vignobles.update);
 
     // Delete a Note with noteId
     app.delete('/vignoble/:noteId', vignobles.delete);

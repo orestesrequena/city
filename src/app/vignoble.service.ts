@@ -8,7 +8,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 
 export interface Vignoble {
-  _id: number;
+  _id:         number;
   name:        String;
   image:       String;
   email:       String;
@@ -41,17 +41,10 @@ export class VignobleService {
   }
 
   /** GET obtenemos un vignoble por su id. Devolvemos `undefined` cuando no exista */
-  getVignobleNo404<Data>(_id: number): Observable<Vignoble> {
-    const url = `${this.vignoblesUrl}/${_id}`;
-    return this.http.get<Vignoble []>(url)
-      .pipe(
-        map(vignobles => vignobles[0]), // returns a {0|1} element array
-        tap(h => {
-          const outcome = h ? `fetched` : `did not find`;
-          this.log(`${outcome} vignoble id=${_id}`);
-        }),
-        catchError(this.handleError<Vignoble >(`getvignoble id=${_id}`))
-      );
+  getVignobleNo404(vignoble: Vignoble | string): Observable<Vignoble> {
+    const id = typeof vignoble === 'string' ? vignoble : vignoble._id;
+     const url = `${this.vignoblesUrl}/${id}`;
+    return this.http.get<Vignoble>(url);
   }
 
   // /** POST: añadimos un nuevo vignoble */

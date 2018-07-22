@@ -1,0 +1,27 @@
+.gap{
+    margin: 10px; 
+  }
+
+  .size {
+      height: 100px;
+  }
+
+  .color{
+    color: #7a6f9b;
+}
+
+.color2 {
+    color:#292535;
+}
+.gap-top{
+    margin-top: 20px;
+}
+
+.gap-top2{
+    margin-top: 60px;
+}
+
+agm-map {
+    height: 300px;
+    border: lightgrey solid 1px;
+  }

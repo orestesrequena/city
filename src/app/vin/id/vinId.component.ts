@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {Vin, VinService} from "../../vin.service";
-import {VinComponent} from "../vin.component";
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
@@ -10,34 +9,19 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class VinIdComponent implements OnInit {
   id: number;
-  vins:Vin[];
+  vin:Vin;
 
 
   constructor(
     private vinService: VinService,
     private _route: ActivatedRoute,
-  ) {
-    console.log(this._route.snapshot.paramMap.get('id'));
-   }
+  ) {}
 
   ngOnInit() {
-    const id= +this._route.snapshot.paramMap.get('id');
-    //this.detailVins(id);
-    this.vinService.getVinNo404(id);
-    //this.vinService.getHero(id).subscribe(vins => this.vins = vins);
-  }
-
-  allVins(): void {
-    this.vinService.getVins()
-      .subscribe(vins => {
-        this.vins = vins;
-      });
-  }
-
-
-  detailVins(vin: Vin): void {
-    this.vinService.getVinNo404(vin._id).subscribe(data => {
-      
+    const id= this._route.snapshot.paramMap.get('id');
+    this.vinService.getVinNo404(id).subscribe(data => {
+      this.vin =data;
     });
   }
+
 }

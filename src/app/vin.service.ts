@@ -26,6 +26,7 @@ const httpOptions = {
 export class VinService {
 
   private vinsUrl = 'http://localhost:3000/vins';  // URL to web api
+  private vignobleUrl = 'http://localhost:3000/vignoble'; 
   constructor(
     private http: HttpClient
   ) { }
@@ -40,20 +41,19 @@ export class VinService {
   }
 
   /** GET obtenemos un vin por su id. Devolvemos `undefined` cuando no exista */
-  getVinNo404(vin: Vin | number): Observable<Vin> {
-    const id = typeof vin === 'number' ? vin : vin._id;
+  getVinNo404(vin: Vin | string): Observable<Vin> {
+    const id = typeof vin === 'string' ? vin : vin._id;
      const url = `${this.vinsUrl}/${id}`;
-     console.log(vin);
-    return this.http.get<Vin[]>(url)
-      .pipe(
-        map(vins => vins[0]), // returns a {0|1} element array
-        tap(h => {
-          const outcome = h ? `fetched` : `did not find`;
-          this.log(`${outcome} vin id=${id}`);
-        }),
-        catchError(this.handleError<Vin>(`getvin id=${id}`))
-      );
+    return this.http.get<Vin>(url);
   }
+
+    /** GET obtenemos un vin por su id. Devolvemos `undefined` cuando no exista */
+    getVignoble(vin: Vin | string): Observable<Vin> {
+      const id = typeof vin === 'string' ? vin : vin._id;
+       const url = `${this.vignobleUrl}/${id}`;
+      return this.http.get<Vin>(url);
+    }
+
 
   // /** POST: añadimos un nuevo vin */
   // addvin (vin: Vin): Observable<Vin> {

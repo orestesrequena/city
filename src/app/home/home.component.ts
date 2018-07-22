@@ -27,39 +27,14 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
    
     this.allNews();
-    this.allVins();
+    this.allVignobles();
   }
 
-  // allClusters(): void {
-  //   this.clusterService.getClusters()
-  //     .subscribe(clusters => {
-  //       this.clusters = clusters;
-  //     });
-  // }
-
-  // // delete(cluster: Cluster): void {
-  // //   this.clusters = this.clusters.filter(h => h !== cluster);
-  // //   this.clusterService.deleteCluster(cluster).subscribe();
-  // // }
-
-  // detail(cluster: Cluster): void {
-  //   this.clusterService.getClusterNo404(cluster._id).subscribe(data => {
-      
-  //   });
-  // }
-
-  allVins(): void {
-    this.vinService.getVins()
-      .subscribe(vins => {
-        this.vins = vins;
+  allVignobles(): void {
+    this.vignobleService.getVignobles()
+      .subscribe(vignobles => {
+        this.vignobles = vignobles;
       });
-  }
-
-
-  detailVins(vin: Vin): void {
-    this.vinService.getVinNo404(vin._id).subscribe(data => {
-      
-    });
   }
 
   allNews(): void {
@@ -69,12 +44,6 @@ export class HomeComponent implements OnInit {
       });
   }
 
-
-  detailNews(news: News): void {
-    this.vinService.getVinNo404(news._id).subscribe(data => {
-      
-    });
-  }
 
   // add(): void {
   //   let cluster: Cluster = {

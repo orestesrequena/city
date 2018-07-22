@@ -27,10 +27,6 @@ export class VinComponent implements OnInit {
   }
 
 
-  detailVins(vin: Vin): void {
-    this.vinService.getVinNo404(vin._id).subscribe(data => {
-      
-    });
-  }
+
 
 }
