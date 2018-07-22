@@ -7,9 +7,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 
 
-export interface Vin{
+export interface Vin {
   _id: number;
-  name:        String;
+  name: String;
   vineyard: Number;
   image: String;
   quantity: Number;
@@ -26,13 +26,12 @@ const httpOptions = {
 export class VinService {
 
   private vinsUrl = 'http://localhost:3000/vins';  // URL to web api
-  private vignobleUrl = 'http://localhost:3000/vignoble'; 
   constructor(
     private http: HttpClient
   ) { }
 
-  /** GET obtenemos todos los vins */
-  getVins (): Observable<Vin[]> {
+  /** GET tous les vins */
+  getVins(): Observable<Vin[]> {
     return this.http.get<Vin[]>(this.vinsUrl)
       .pipe(
         tap(vins => this.log(`fetched vins`)),
@@ -40,19 +39,18 @@ export class VinService {
       );
   }
 
-  /** GET obtenemos un vin por su id. Devolvemos `undefined` cuando no exista */
+  /** GET vin a partir d'un id */
   getVinNo404(vin: Vin | string): Observable<Vin> {
     const id = typeof vin === 'string' ? vin : vin._id;
-     const url = `${this.vinsUrl}/${id}`;
+    const url = `${this.vinsUrl}/${id}`;
     return this.http.get<Vin>(url);
   }
 
-    /** GET obtenemos un vin por su id. Devolvemos `undefined` cuando no exista */
-    getVinsByVignoble(vignobleId: string): Observable<Vin[]> {
-      
-       const url = `${this.vinsUrl}/?vignobleId=${vignobleId}`;
-      return this.http.get<Vin[]>(url);
-    }
+  /** GET pour obtenir la liste de vins d'un vignoble*/
+  getVinsByVignoble(vignobleId: string): Observable<Vin[]> {
+    const url = `${this.vinsUrl}/?vignobleId=${vignobleId}`;
+    return this.http.get<Vin[]>(url);
+  }
 
 
   // /** POST: añadimos un nuevo vin */
@@ -89,7 +87,7 @@ export class VinService {
    * @param operation - name of the operation that failed
    * @param result - optional value to return as the observable result
    */
-  private handleError<T> (operation = 'operation', result?: T) {
+  private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
       // TODO: send the error to remote logging infrastructure

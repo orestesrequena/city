@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Vignoble, VignobleService} from "../vignoble.service";
-import {ActivatedRoute} from "@angular/router";
+import { Vignoble, VignobleService } from "../vignoble.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-vignoble',
@@ -27,9 +27,9 @@ export class VignobleComponent implements OnInit {
   }
 
   detailVignobles(vignoble: Vignoble): void {
-    const id= this._route.snapshot.paramMap.get('id');
+    const id = this._route.snapshot.paramMap.get('id');
     this.vignobleService.getVignobleNo404(id).subscribe(data => {
-      
+
     });
   }
 

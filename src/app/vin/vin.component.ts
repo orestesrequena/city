@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Vin, VinService} from "../vin.service";
+import { Vin, VinService } from "../vin.service";
 
 @Component({
   selector: 'app-vin',
@@ -8,8 +8,7 @@ import {Vin, VinService} from "../vin.service";
 })
 export class VinComponent implements OnInit {
 
-
-  vins:Vin[];
+  vins: Vin[];
 
   constructor(
     private vinService: VinService,
@@ -25,8 +24,5 @@ export class VinComponent implements OnInit {
         this.vins = vins;
       });
   }
-
-
-
 
 }

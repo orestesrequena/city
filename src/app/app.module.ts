@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule , ApplicationRef } from '@angular/core';
-import {HttpClientModule} from "@angular/common/http";
+import { NgModule, ApplicationRef } from '@angular/core';
+import { HttpClientModule } from "@angular/common/http";
 
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
-import {HomeComponent} from "./home/home.component";
+import { HomeComponent } from "./home/home.component";
 import { VignobleComponent } from './vignoble/vignoble.component';
 import { VinComponent } from './vin/vin.component';
 import { ContactComponent } from './contact/contact.component';

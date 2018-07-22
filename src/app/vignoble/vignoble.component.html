@@ -1,27 +1,29 @@
 <div class="container gap-top">
-    <div class="row mb-2">
-      <div class="col-md-12">
-        <div class="card flex-md-row mb-4 box-shadow h-md-250">
-          <div class="card-body d-flex flex-column align-items-start">
-            <h3 class="d-inline-block mb-2 color ">Liste de vignobles</h3>
-  
-              <div class="container ">
-                <div class="card" *ngFor="let vignobles of vignobles">
-                  <div class="row" >
-                    <div class="col-md-8 gap">
-                      <div class="card-block">
-                        <h6 class="card-title"><a class="color" routerLink="/vignoble/{{ vignobles._id }}"> {{ vignobles.name }}</a></h6>
-                        <p class="card-text color2" > {{vignobles.description}} </p>
-                      </div>
-                    </div>
-                    <div class="col-md-3 gap">
-                          <img class=" rounded float-right size" src={{vignobles.image}} alt={{vignobles.image}}>   
-                    </div>
+  <div class="row mb-2">
+    <div class="col-md-12">
+      <div class="card flex-md-row mb-4 box-shadow h-md-250">
+        <div class="card-body d-flex flex-column align-items-start">
+          <h3 class="d-inline-block mb-2 color ">Liste de vignobles</h3>
+
+          <div class="container ">
+            <div class="card" *ngFor="let vignobles of vignobles">
+              <div class="row">
+                <div class="col-md-8 gap">
+                  <div class="card-block">
+                    <h6 class="card-title">
+                      <a class="color" routerLink="/vignoble/{{ vignobles._id }}"> {{ vignobles.name }}</a>
+                    </h6>
+                    <p class="card-text color2"> {{vignobles.description}} </p>
                   </div>
                 </div>
+                <div class="col-md-3 gap">
+                  <img class=" rounded float-right size" src={{vignobles.image}} alt={{vignobles.image}}>
+                </div>
               </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>

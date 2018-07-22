@@ -36,11 +36,8 @@ exports.findAll = (function (req, res) {
   Vins.find({}, function (err, vins) {
     const params = req.query;
     let resultVins = vins;
-    console.log(params);
-    console.log(params.vignobleId);
     if (params.vignobleId) {
       resultVins = vins.filter(item => {
-        console.log(item.vineyard);
         return item.vineyard == params.vignobleId
       });
     }

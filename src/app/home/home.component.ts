@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import {Vin, VinService} from "../vin.service";
-import {Vignoble, VignobleService} from "../vignoble.service";
-import { News,NewsService } from '../news.service';
+import { Vin, VinService } from "../vin.service";
+import { Vignoble, VignobleService } from "../vignoble.service";
+import { News, NewsService } from '../news.service';
 
 
 @Component({
@@ -12,20 +12,18 @@ import { News,NewsService } from '../news.service';
 })
 export class HomeComponent implements OnInit {
 
-
-  vins:Vin[];
+  vins: Vin[];
   vignobles: Vignoble[];
   news: News[];
 
   constructor(
-  
+
     private vinService: VinService,
     private vignobleService: VignobleService,
     private newsService: NewsService
-  ) {}
+  ) { }
 
   ngOnInit() {
-   
     this.allNews();
     this.allVignobles();
   }
@@ -43,24 +41,5 @@ export class HomeComponent implements OnInit {
         this.news = news;
       });
   }
-
-
-  // add(): void {
-  //   let cluster: Cluster = {
-  //     _id: 100,
-  //     name: 'nuevo cluster',
-  //     description: 'fze'
-  //   };
-  //   this.clusterService.addCluster(cluster).subscribe(response => {
-  //     this.clusters.push(cluster);
-  //   })
-  // }
-
-  // update(cluster: Cluster): void {
-  //   cluster.name = 'random';
-  //   this.clusterService.updateCluster(cluster).subscribe(response => {
-      
-  //   })
-  // }
 
 }

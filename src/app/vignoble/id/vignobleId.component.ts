@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Vignoble, VignobleService} from "../../vignoble.service";
-import {Vin, VinService} from "../../vin.service";
-import {ActivatedRoute} from "@angular/router";
+import { Vignoble, VignobleService } from "../../vignoble.service";
+import { Vin, VinService } from "../../vin.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-vignobleId',
@@ -9,25 +9,25 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./vignobleId.component.css']
 })
 export class VignobleIdComponent implements OnInit {
-  
+
   id: number;
   vignoble: Vignoble;
-  vins :Vin[];
+  vins: Vin[];
   lat: number = 51.678418;
   lng: number = 7.809007;
-  
+
   constructor(
     private vignobleService: VignobleService,
     private vinService: VinService,
-    private _route: ActivatedRoute,) { }
+    private _route: ActivatedRoute, ) { }
 
   ngOnInit() {
-    const id= this._route.snapshot.paramMap.get('id');
+    const id = this._route.snapshot.paramMap.get('id');
     this.vignobleService.getVignobleNo404(id).subscribe(data => {
-      this.vignoble =data;
+      this.vignoble = data;
     });
     this.vinService.getVinsByVignoble(id).subscribe(data => {
-      this.vins =data;
+      this.vins = data;
     });
   }
 
