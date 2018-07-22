@@ -12,7 +12,7 @@ export class VignobleIdComponent implements OnInit {
   
   id: number;
   vignoble: Vignoble;
-  vin :Vin;
+  vins :Vin[];
   lat: number = 51.678418;
   lng: number = 7.809007;
   
@@ -26,8 +26,8 @@ export class VignobleIdComponent implements OnInit {
     this.vignobleService.getVignobleNo404(id).subscribe(data => {
       this.vignoble =data;
     });
-    this.vinService.getVignoble(id).subscribe(data => {
-      this.vin =data;
+    this.vinService.getVinsByVignoble(id).subscribe(data => {
+      this.vins =data;
     });
   }
 

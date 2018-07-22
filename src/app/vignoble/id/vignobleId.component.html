@@ -22,7 +22,7 @@
                     <div class="card-body d-flex flex-column a">
                       <h3 class="d-inline-block mb-2 color ">Mes vins</h3>
                       <h6 *ngFor="let vin of vins| slice:0:5; let i=index" class="mb-0">
-                        <a class="color2" routerLink="/vins/{{ vins._id }}">Name: {{ vin?.vineyard }}</a>
+                        <a class="color2" routerLink="/vins/{{ vin?._id }}">Name: {{ vin?.name }}</a>
                       </h6>
                     </div>
                   </div>

@@ -48,10 +48,10 @@ export class VinService {
   }
 
     /** GET obtenemos un vin por su id. Devolvemos `undefined` cuando no exista */
-    getVignoble(vin: Vin | string): Observable<Vin> {
-      const id = typeof vin === 'string' ? vin : vin._id;
-       const url = `${this.vignobleUrl}/${id}`;
-      return this.http.get<Vin>(url);
+    getVinsByVignoble(vignobleId: string): Observable<Vin[]> {
+      
+       const url = `${this.vinsUrl}/?vignobleId=${vignobleId}`;
+      return this.http.get<Vin[]>(url);
     }
 
 
