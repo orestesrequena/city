@@ -39,7 +39,7 @@ import { VignobleIdComponent } from './vignoble/id/vignobleId.component';
     CommonModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCfZPk8-OaQ3uCO-kSL38vOLkKCWWJAKr8'
+      apiKey: 'your API'
     })
   ],
   providers: [VignobleService, VinService, NewsService],
